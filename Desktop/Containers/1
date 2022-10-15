@@ -1,0 +1,13 @@
+FROM fedora:latest
+
+RUN dnf -y update 
+RUN dnf install dnf-plugin-system-upgrade
+RUN dnf system-update download --refresh 
+RUN dnf system-upgrade reboot
+
+RUN apt-get install tuxpaint
+RUN apt-get install vim
+RUN apt-get install httpd
+
+COPY myinfo.html
+

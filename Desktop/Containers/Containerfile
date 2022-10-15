@@ -1,0 +1,17 @@
+FROM fedora:latest
+
+RUN dnf update && upgrade -y
+
+RUN apt-get install tuxpaint
+RUN apt-get install vim
+RUN apt-get install httpd
+
+COPY myinfo.html /var/www/html/
+
+EXPOSE 80
+
+ENTRYPOINT /usr/sbin/httpd -DFOREGROUND
+
+
+
+
