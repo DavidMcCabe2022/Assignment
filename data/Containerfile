@@ -1,0 +1,15 @@
+FROM fedora:latest 
+
+RUN dnf update && upgrade -y
+
+RUN dnf -yqq install httpd
+RUN dnf -yqq install tuxpain
+RUN dnf -yqq install vim
+
+COPY myinfo.html /var/www/html
+
+EXPOSE 80
+
+ENTRYPOINT /usr/sbin/httpd -DFOREGROUND
+
+
